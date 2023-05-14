@@ -2,6 +2,7 @@
 :root {
     --primary-color: #007bff;
     --secondary-color: #6c757d;
+    --removal-color:rgb(200, 3, 3);
     --font-size-base: 16px;
     --font-family-base: Arial, sans-serif;
 }
@@ -13,11 +14,13 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    background: #eee;
 }
 
 h1 {
     font-size: 2.5em;
-    margin-top: 0;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
 }
 
 h2 {
@@ -29,16 +32,33 @@ img {
     max-width: 100%;
     height: auto;
 }
-
+.top-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgb(232, 1, 128);
+    padding: 0 1.5em;
+}
+.top-page div{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+#search{
+    height:50%;
+    font-size: 1.2em;
+    margin: auto;
+}
 /* Header styles */
 .cart-button {
     background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 3px;
-    padding: 0.5em 1em;
+    padding: 0.5em 0.5em;
     font-size: 1.2em;
     cursor: pointer;
+    margin: auto;
 }
 
 .cart-badge {
@@ -55,7 +75,7 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1em;
-    margin-top: 1em;
+    margin: 1em 2em 0em 2em;
 }
 
 .item {
@@ -112,6 +132,7 @@ img {
     padding: 1em;
     border: 1px solid #ccc;
     max-width: 600px;
+    border-radius: 1em;
 }
 
 .close {
@@ -120,27 +141,29 @@ img {
     font-weight: bold;
     cursor: pointer;
 }
-
 .cart-items {
-    list-style: none;
     margin: 0;
     padding: 0;
-}
-
-.cart-items li {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 0.5em;
+    gap:0.2em;
 }
-
-.cart-items li span {
-    margin-left: 0.5em;
+.cart-item{
+    padding:0.5em;
+    background: #eee;
 }
-
+.needs-flex{
+	display:flex;
+	justify-content:space-between;
+    align-items: center;
+}
 .cart-total {
     font-weight: bold;
 }
-
+.money-total{
+	font-weight: bold;
+}
 .buy-btn {
     background-color: var(--primary-color);
     color: white;
@@ -150,4 +173,43 @@ img {
     font-size: 1.2em;
     cursor: pointer;
     margin-top: 1em;
+}
+.buy-btn:disabled {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    cursor: not-allowed;
+    margin-top: 1em;
+}
+.add-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.remove-btn {
+    background-color: var(--removal-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.2em 0.3em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.remove-all{
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    color: red;
+    border:none;
+}
+.remove-all:focus{
+    border:none;
+    outline:none;
 }
